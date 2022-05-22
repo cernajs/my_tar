@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
     FILE *f;
 
     if ((f = fopen(file, "r")) == NULL)
-        errx(2, "%s: Cannot open: No such file or directory", file);
+        errx(2, "%s: No such file or directory", file);
 
 
     int fs = get_size(f);
@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
         long int read = fread(header, sizeof(char), LR_SIZE, f);
 
         if (read != LR_SIZE)
-            errx(2, "Block %d incomplete, exiting", lr_count);
+            errx(2, "incomplete, exiting", lr_count);
 
         lr_count++;
 
